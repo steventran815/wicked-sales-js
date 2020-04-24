@@ -1,11 +1,6 @@
 import React from 'react';
 
 export default class ProductListItem extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
-  }
 
   render() {
     const productImage = this.props.product.image;
@@ -13,8 +8,8 @@ export default class ProductListItem extends React.Component {
     const productPrice = ((this.props.product.price) / 100).toFixed(2);
     const productShortDescription = this.props.product.shortDescription;
     return (
-      <div className="col-md-4 cardContainer">
-        <div className="card">
+      <div className="col-md-4 mb-5">
+        <div className="card productCard">
           <div className="productImageDiv">
             <img className="productImage" src={productImage}></img>
           </div>

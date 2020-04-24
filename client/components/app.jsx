@@ -13,7 +13,7 @@ export default class App extends React.Component {
     return (
       <div>
         <Header />
-        <div className="container containerBackground">
+        <div className="container pt-5">
           <ProductList />
         </div>
       </div>
