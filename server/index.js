@@ -10,6 +10,7 @@ const app = express();
 
 app.use(staticMiddleware);
 app.use(sessionMiddleware);
+
 app.use(express.json());
 
 app.get('/api/health-check', (req, res, next) => {
@@ -37,8 +38,9 @@ app.get('/api/products/', (req, res, next) => {
 
 app.get('/api/products/:productId', (req, res, next) => {
   const { productId } = req.params;
-  if (!parseInt(productId, 10)) {
-    next();
+  if (!parseInt(productId, 10) || productId < 1) {
+    return next(new ClientError('Product must be a Positive Interger', 400))
+    ;
   }
   const sql = `
     select *
@@ -50,7 +52,7 @@ app.get('/api/products/:productId', (req, res, next) => {
     .then(result => {
       const product = result.rows[0];
       if (!product) {
-        next();
+        return next(new ClientError('Cannot find product within our database', 404));
       } else {
         res.json(product);
       }
