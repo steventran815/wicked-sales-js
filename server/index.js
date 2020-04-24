@@ -19,11 +19,13 @@ app.get('/api/health-check', (req, res, next) => {
     .catch(err => next(err));
 });
 
-// STEVEN'S CODE //
-
 app.get('/api/products/', (req, res, next) => {
   const sql = `
-    select *
+    select "image",
+           "name",
+           "price",
+           "productId",
+           "shortDescription"
       from "products"
   `;
   db.query(sql)
@@ -34,7 +36,6 @@ app.get('/api/products/', (req, res, next) => {
     .catch(err => next(err));
 });
 
-// STEVEN'S CODE
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
 });
