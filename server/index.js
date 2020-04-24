@@ -36,6 +36,30 @@ app.get('/api/products/', (req, res, next) => {
     .catch(err => next(err));
 });
 
+app.get('/api/products/:productId', (req, res, next) => {
+  const { productId } = req.params;
+  if (!parseInt(productId, 10) || productId < 1) {
+    return next(new ClientError('Product must be a Positive Interger', 400))
+    ;
+  }
+  const sql = `
+    select *
+      from "products"
+     where "productId" = $1
+  `;
+  const params = [productId];
+  db.query(sql, params)
+    .then(result => {
+      const product = result.rows[0];
+      if (!product) {
+        return next(new ClientError('Cannot find product within our database', 404));
+      } else {
+        res.json(product);
+      }
+    })
+    .catch(err => next(err));
+});
+
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
 });
