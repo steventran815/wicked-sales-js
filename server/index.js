@@ -19,6 +19,22 @@ app.get('/api/health-check', (req, res, next) => {
     .catch(err => next(err));
 });
 
+// STEVEN'S CODE //
+
+app.get('/api/products/', (req, res, next) => {
+  const sql = `
+    select *
+      from "products"
+  `;
+  db.query(sql)
+    .then(result => {
+      const products = result.rows;
+      res.status(200).json(products);
+    })
+    .catch(err => next(err));
+});
+
+// STEVEN'S CODE
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
 });
