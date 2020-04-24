@@ -10,7 +10,6 @@ const app = express();
 
 app.use(staticMiddleware);
 app.use(sessionMiddleware);
-
 app.use(express.json());
 
 app.get('/api/health-check', (req, res, next) => {
@@ -32,6 +31,29 @@ app.get('/api/products/', (req, res, next) => {
     .then(result => {
       const products = result.rows;
       res.status(200).json(products);
+    })
+    .catch(err => next(err));
+});
+
+app.get('/api/products/:productId', (req, res, next) => {
+  const { productId } = req.params;
+  if (!parseInt(productId, 10)) {
+    next();
+  }
+  const sql = `
+    select *
+      from "products"
+     where "productId" = $1
+  `;
+  const params = [productId];
+  db.query(sql, params)
+    .then(result => {
+      const product = result.rows[0];
+      if (!product) {
+        next();
+      } else {
+        res.json(product);
+      }
     })
     .catch(err => next(err));
 });
