@@ -3,6 +3,7 @@ import ProductListItem from './product-list-item.jsx';
 
 export default class ProductList extends React.Component {
   constructor(props) {
+
     super(props);
     this.state = {
       products: []
@@ -25,7 +26,9 @@ export default class ProductList extends React.Component {
   render() {
     const product = this.state.products;
     const productsList = product.map(singleProduct => {
-      return <ProductListItem key={singleProduct.productId} product={singleProduct} />;
+      return (
+        <ProductListItem setViewFunction={this.props.setViewFunction} key={singleProduct.productId} product={singleProduct} />
+      );
     });
     return (
       <div className="row">{productsList}</div>
