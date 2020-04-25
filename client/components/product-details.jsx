@@ -36,21 +36,21 @@ export default class ProductDetails extends React.Component {
       );
     } else {
       return (
-        <div className="descriptionBackground p-5 container">
+        <div className="descriptionBackground bg-white p-5 container">
           <div className="row">
             <div className="col-md-12">
-              <div className="backToCatalog mb-3" onClick={() => this.props.setViewFunction('catalog', {})}>&lt; Back to Catalog</div>
+              <div className="backToCatalog mb-3 text-muted" onClick={() => this.props.setViewFunction('catalog', {})}>&lt; Back to Catalog</div>
             </div>
           </div>
           <div className="row mb-5">
             <div className="col-md-5">
-              <div className="descriptionImageBox">
+              <div className="descriptionImageBox d-flex align-self-center">
                 <img className="descriptionImage" src={product.image} />
               </div>
             </div>
             <div className="col-md-7">
               <h2 className="descriptionName">{product.name}</h2>
-              <h3 className="descriptionPrice">${((product.price) / 100).toFixed(2)}</h3>
+              <h4 className="text-muted">${((product.price) / 100).toFixed(2)}</h4>
               <p className="descriptionShortDescription">{product.shortDescription}</p>
             </div>
           </div>

@@ -67,22 +67,13 @@ body{
 
 .descriptionImageBox{
   height:350px;
-  display:flex;
-  align-content:center;
 }
 
 .descriptionBackground{
-  background-color:white;
   box-shadow: 0px 0px 7px #d5d5d5;
 }
 
-.descriptionPrice{
-  color:#999999;
-  font-size:1.25rem;
-}
-
 .backToCatalog{
-  color:#999999;
   font-size:1rem;
   cursor:pointer;
   transition:all ease .15s;
@@ -90,5 +81,4 @@ body{
 
 .backToCatalog:hover{
   color:#1c1c1c;
-
 }
