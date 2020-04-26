@@ -101,7 +101,7 @@ app.post('/api/cart/', (req, res, next) => {
       if (resultPrice.rows.length === 0) throw new ClientError('Invalid product', 400);
       if (cartId) {
         return {
-          cartId: req.session, price: resultPrice.rows[0].price
+          cartId: req.session.cartId, price: resultPrice.rows[0].price
         };
       }
       const sqlInsertCart = `
