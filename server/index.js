@@ -10,7 +10,6 @@ const app = express();
 
 app.use(staticMiddleware);
 app.use(sessionMiddleware);
-
 app.use(express.json());
 
 app.get('/api/health-check', (req, res, next) => {
@@ -74,7 +73,10 @@ app.get('/api/cart/', (req, res, next) => {
   where "c"."cartId" = $1
   `;
   const params = [cartId];
-  if (!req.session.cartId) { res.status(200).json([]); }
+  if (!req.session.cartId) {
+    res.status(200).json([]);
+    return;
+  }
   db.query(sql, params)
     .then(result => {
       res.status(200).json(result.rows);
@@ -85,7 +87,6 @@ app.get('/api/cart/', (req, res, next) => {
 app.post('/api/cart/', (req, res, next) => {
   const { cartId } = req.session;
   const { productId } = req.body;
-
   if (productId < 0) {
     return next(new ClientError('Product Id must be a positive number ', 400));
   }
@@ -100,7 +101,7 @@ app.post('/api/cart/', (req, res, next) => {
       if (resultPrice.rows.length === 0) throw new ClientError('Invalid product', 400);
       if (cartId) {
         return {
-          price: resultPrice.rows[0].price, cartId: cartId
+          cartId: req.session, price: resultPrice.rows[0].price
         };
       }
       const sqlInsertCart = `
