@@ -152,6 +152,32 @@ app.post('/api/cart/', (req, res, next) => {
     .catch(err => next(err));
 });
 
+// POST ORDER
+app.post('/api/orders/', (req, res, next) => {
+  const { cartId } = req.body.cartId;
+  if (!req.body.name || !req.body.creditCard || !req.body.shippingAddress) { throw new ClientError('Name, CreditCard, and Shipping Address are required', 400); }
+  const insertOrderSql = `
+            insert into "orders" ("cartId", "name","creditCard","shippingAddress")
+            values ($1, $2, $3, $4)
+            returning *
+            `;
+  const values = [cartId, req.body.name, req.body.creditCard, req.body.shippingAddress];
+  return db.query(insertOrderSql, values)
+    .then(data => {
+
+      res.status(201).json(data);
+    }).catch(err => next(err));
+});
+//   if (!req.session.cartId) throw new ClientError('CartId Not Available', 400);
+//   const values = [cartId, req.body.name, req.body.creditCard, req.body.shippingAddress];
+
+//   db.query(insertOrderSql, values)
+//     .then(result => {
+//       delete req.body.cartId;
+//       res.status(201).json(result);
+//     });
+// }
+
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
 });
