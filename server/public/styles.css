@@ -96,3 +96,7 @@ body{
 .cartItemSummaryDiv{
   box-shadow: 0px 0px 3px #d5d5d5;
 }
+
+.cartItemDiv{
+  cursor:pointer;
+}
