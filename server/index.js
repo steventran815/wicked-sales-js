@@ -153,30 +153,28 @@ app.post('/api/cart/', (req, res, next) => {
 });
 
 // POST ORDER
-app.post('/api/orders/', (req, res, next) => {
-  const { cartId } = req.body.cartId;
-  if (!req.body.name || !req.body.creditCard || !req.body.shippingAddress) { throw new ClientError('Name, CreditCard, and Shipping Address are required', 400); }
-  const insertOrderSql = `
-            insert into "orders" ("cartId", "name","creditCard","shippingAddress")
-            values ($1, $2, $3, $4)
-            returning *
-            `;
-  const values = [cartId, req.body.name, req.body.creditCard, req.body.shippingAddress];
-  return db.query(insertOrderSql, values)
-    .then(data => {
-
-      res.status(201).json(data);
-    }).catch(err => next(err));
+app.post('/api/orders', (req, res, next) => {
+  if (!req.session.cartId) {
+    return res.status(400).json({ error: 'No Cart ID in Session' });
+  }
+  if (req.body.name && req.body.creditCard && req.body.shippingAddress) {
+    const sql = `
+      insert into "orders" ("cartId","name","creditCard","shippingAddress")
+        values($1,$2,$3,$4)
+      returning *;`;
+    const values = [req.session.cartId, req.body.name, req.body.creditCard, req.body.shippingAddress];
+    db.query(sql, values)
+      .then(orderData => {
+        delete req.session.cartId;
+        res.status(201).json(orderData.rows[0]);
+      })
+      .catch(err => next(err));
+  } else {
+    return res.status(404).json({ error: 'Name, Credit Card, and Shipping Address are Required' });
+  }
 });
-//   if (!req.session.cartId) throw new ClientError('CartId Not Available', 400);
-//   const values = [cartId, req.body.name, req.body.creditCard, req.body.shippingAddress];
 
-//   db.query(insertOrderSql, values)
-//     .then(result => {
-//       delete req.body.cartId;
-//       res.status(201).json(result);
-//     });
-// }
+// END OF POST
 
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
