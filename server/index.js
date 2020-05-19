@@ -152,7 +152,6 @@ app.post('/api/cart/', (req, res, next) => {
     .catch(err => next(err));
 });
 
-// POST ORDER
 app.post('/api/orders', (req, res, next) => {
   if (!req.session.cartId) {
     return res.status(400).json({ error: 'No Cart ID in Session' });
@@ -173,8 +172,6 @@ app.post('/api/orders', (req, res, next) => {
     return res.status(404).json({ error: 'Name, Credit Card, and Shipping Address are Required' });
   }
 });
-
-// END OF POST
 
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
