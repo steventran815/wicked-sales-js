@@ -9,6 +9,7 @@ export default class App extends React.Component {
     super(props);
     this.addToCart = this.addToCart.bind(this);
     this.setView = this.setView.bind(this);
+    this.placeOrder = this.placeOrder.bind(this);
     this.state = {
       cart: [],
       view: {
@@ -16,6 +17,27 @@ export default class App extends React.Component {
         params: {}
       }
     };
+  }
+
+  placeOrder(orderInformation) {
+    fetch('/api/orders', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(orderInformation)
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          view: {
+            cart: [],
+            name: 'catalog',
+            params: {}
+          }
+        });
+      })
+      .catch(error => console.error('Error:', error));
   }
 
   setView(name, params) {

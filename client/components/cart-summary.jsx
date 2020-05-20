@@ -1,8 +1,25 @@
 import React from 'react';
+import CheckoutForm from './checkout-form';
+
 import CartSummaryItem from './cart-summary-item.jsx';
 export default class CartSummary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      cart: [],
+      view: {
+        name: 'checkout',
+        params: {}
+      }
+    };
+  }
 
   render() {
+    if (this.state.view.name === 'checkout') {
+      return (
+        <CheckoutForm/>
+      );
+    }
     const item = this.props.item;
     let totalPrice = 0;
     for (let i = 0; i < item.length; i++) {
