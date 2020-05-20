@@ -21,6 +21,7 @@ export default class App extends React.Component {
   }
 
   placeOrder(newOrder) {
+    if (newOrder.name === '' || newOrder.creditCard === '' || newOrder.shippingAddress === '') { return; }
     fetch('/api/orders', {
       method: 'POST',
       headers: {
@@ -101,7 +102,7 @@ export default class App extends React.Component {
     } else if (this.state.view.name === 'cart') {
       return (
         <div>
-
+          <Header setViewFunction={this.setView} cartItemCount={this.state.cart.length} />
           <div className="container pt-5">
             <CartSummary item={this.state.cart} addToCartFunction={this.addToCart} setViewFunction={this.setView} productId={this.state.view.params.productId} params={this.state.view.params} />
           </div>
@@ -112,7 +113,7 @@ export default class App extends React.Component {
         <div>
           <Header setViewFunction={this.setView} cartItemCount={this.state.cart.length} />
           <div className="container pt-5">
-            <CheckoutForm cartItemCount={this.state.cart.length} setViewFunction={this.setView} placeOrderFunction={this.placeOrder}/>
+            <CheckoutForm totalPrice={this.props.totalPrice} cartItemCount={this.state.cart.length} setViewFunction={this.setView} item={this.state.cart} placeOrderFunction={this.placeOrder}/>
           </div>
         </div>
       );
