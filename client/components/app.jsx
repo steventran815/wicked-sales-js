@@ -3,12 +3,14 @@ import Header from './header.jsx';
 import ProductList from './product-list.jsx';
 import ProductDetails from './product-details.jsx';
 import CartSummary from './cart-summary.jsx';
+import CheckoutForm from './checkout-form.jsx';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.addToCart = this.addToCart.bind(this);
     this.setView = this.setView.bind(this);
+    this.placeOrder = this.placeOrder.bind(this);
     this.state = {
       cart: [],
       view: {
@@ -16,6 +18,28 @@ export default class App extends React.Component {
         params: {}
       }
     };
+  }
+
+  placeOrder(newOrder) {
+    if (newOrder.name === '' || newOrder.creditCard === '' || newOrder.shippingAddress === '') { return; }
+    fetch('/api/orders', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newOrder)
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          view: {
+            cart: [],
+            name: 'catalog',
+            params: {}
+          }
+        });
+      })
+      .catch(error => console.error('Error:', error));
   }
 
   setView(name, params) {
@@ -81,6 +105,15 @@ export default class App extends React.Component {
           <Header setViewFunction={this.setView} cartItemCount={this.state.cart.length} />
           <div className="container pt-5">
             <CartSummary item={this.state.cart} addToCartFunction={this.addToCart} setViewFunction={this.setView} productId={this.state.view.params.productId} params={this.state.view.params} />
+          </div>
+        </div>
+      );
+    } else if (this.state.view.name === 'checkout') {
+      return (
+        <div>
+          <Header setViewFunction={this.setView} cartItemCount={this.state.cart.length} />
+          <div className="container pt-5">
+            <CheckoutForm totalPrice={this.props.totalPrice} cartItemCount={this.state.cart.length} setViewFunction={this.setView} item={this.state.cart} placeOrderFunction={this.placeOrder}/>
           </div>
         </div>
       );
