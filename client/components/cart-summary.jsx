@@ -18,8 +18,10 @@ export default class CartSummary extends React.Component {
         <div className="backToCatalog mb-3 text-muted" onClick={() => this.props.setViewFunction('catalog', {})}>&lt; Back to Catalog</div>
         <h2 className="summaryTitle mb-3">My Cart</h2>
         {cartList}
-        <h4 className="totalPrice mt-5 mb-5">Item Total: ${((totalPrice) / 100).toFixed(2)}</h4>
-        <button onClick={() => this.props.setViewFunction('checkout', {})} className="checkout-button btn btn-primary">Checkout</button>
+        <div className="mt-5 mb-5">
+          <h4 className="totalPrice">Item Total: ${((totalPrice) / 100).toFixed(2)}</h4>
+          <button onClick={() => this.props.setViewFunction('checkout', {})} className="checkout-button btn btn-primary">Checkout</button>
+        </div>
       </div>
     );
   }

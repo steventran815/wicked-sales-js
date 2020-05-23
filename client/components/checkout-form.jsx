@@ -61,7 +61,7 @@ export default class CheckoutForm extends React.Component {
           <textarea className="formInput formTextArea" required value={this.state.value} onChange={this.handleShippingAddressChange} input="text"></textarea>
           <div className="formFooter pt-3">
             <div className="backToCatalog mb-3 text-muted" onClick={() => this.props.setViewFunction('catalog', {})}>&lt; Continue Shopping</div>
-            <button className="formSubmit btn btn-primary" onClick={() => this.props.placeOrderFunction(newOrder)} type="submit">Submit</button>
+            <button className="formSubmit  btn btn-primary" onClick={() => this.props.placeOrderFunction(newOrder)} type="submit">Submit</button>
           </div>
         </form>
       </div>
