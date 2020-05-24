@@ -3,13 +3,14 @@
 }
 
 header{
-  padding: 15px 25px;
+  padding: 30px 25px;
 }
 
 header .title{
   color: #ffffff;
   font-size: 25px;
   font-weight:250;
+  cursor:pointer;
 }
 
 header .logo{
