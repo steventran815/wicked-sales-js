@@ -16,7 +16,7 @@ export default class CartSummary extends React.Component {
     return (
       <div>
         <div className="backToCatalog mb-3 text-muted" onClick={() => this.props.setViewFunction('catalog', {})}>&lt; Back to Catalog</div>
-        <h2 className="summaryTitle mb-3">My Cart</h2>
+        <h4 className="summaryTitle mb-3">Cart</h4>
         {cartList}
         <div className="mt-5 mb-5">
           <h4 className="totalPrice">Item Total: ${((totalPrice) / 100).toFixed(2)}</h4>

@@ -10,7 +10,7 @@ export default function ProductListItem(props) {
     <div onClick={() => props.setViewFunction('details', { productId: props.product.productId })} className="col-md-4 mb-5">
       <div className="card productCard">
         <div className="productImageDiv">
-          <img className="productImage" src={productImage}></img>
+          <img className="productImage" alt="An image of a product" title="product Image" src={productImage}></img>
         </div>
         <div className="productDescription">
           <h5 className="productTitle"><strong>{productName}</strong></h5>
