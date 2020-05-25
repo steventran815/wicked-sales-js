@@ -45,14 +45,14 @@ export default class ProductDetails extends React.Component {
           <div className="row mb-5">
             <div className="col-md-5">
               <div className="descriptionImageBox d-flex align-self-center">
-                <img className="descriptionImage" src={product.image} />
+                <img className="descriptionImage" alt="An image of the product" title="product image" src={product.image} />
               </div>
             </div>
             <div className="col-md-7">
               <h2 className="descriptionName">{product.name}</h2>
               <h4 className="text-muted">${((product.price) / 100).toFixed(2)}</h4>
               <p className="descriptionShortDescription">{product.shortDescription}</p>
-              <button onClick={() => this.props.addToCartFunction(product)} className="btn btn-primary">Add To Cart</button>
+              <button onClick={() => this.props.addToCartFunction(product)} className="btn btn-primary">Add to Cart</button>
             </div>
           </div>
           <div className="row">
