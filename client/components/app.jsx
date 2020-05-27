@@ -14,14 +14,13 @@ export default class App extends React.Component {
     this.state = {
       cart: [],
       view: {
-        name: 'catalog',
+        name: 'checkout',
         params: {}
       }
     };
   }
 
   placeOrder(newOrder) {
-    if (newOrder.name === '' || newOrder.creditCard === '' || newOrder.shippingAddress === '') { return; }
     fetch('/api/orders', {
       method: 'POST',
       headers: {
@@ -31,9 +30,15 @@ export default class App extends React.Component {
     })
       .then(res => res.json())
       .then(data => {
+        if (newOrder.name === '' || newOrder.creditCard === '' || newOrder.shippingAddress === '') {
+          this.setState({
+            error: data.error
+          });
+          return;
+        }
         this.setState({
+          cart: [],
           view: {
-            cart: [],
             name: 'catalog',
             params: {}
           }
@@ -113,7 +118,7 @@ export default class App extends React.Component {
         <div>
           <Header setViewFunction={this.setView} cartItemCount={this.state.cart.length} />
           <div className="container pt-5">
-            <CheckoutForm totalPrice={this.props.totalPrice} cartItemCount={this.state.cart.length} setViewFunction={this.setView} item={this.state.cart} placeOrderFunction={this.placeOrder}/>
+            <CheckoutForm error={this.state.error} totalPrice={this.props.totalPrice} cartItemCount={this.state.cart.length} setViewFunction={this.setView} item={this.state.cart} placeOrderFunction={this.placeOrder}/>
           </div>
         </div>
       );

@@ -27,6 +27,13 @@ export default class CheckoutForm extends React.Component {
   }
 
   handleSubmit(event) {
+    event.preventDefault();
+    const newOrder = {
+      name: this.state.name,
+      creditCard: this.state.creditCard,
+      shippingAddress: this.state.shippingAddress
+    };
+    this.props.placeOrderFunction(newOrder);
     this.setState({
       name: '',
       creditCard: '',
@@ -36,11 +43,6 @@ export default class CheckoutForm extends React.Component {
   }
 
   render() {
-    const newOrder = {
-      name: this.state.name,
-      creditCard: this.state.creditCard,
-      shippingAddress: this.state.shippingAddress
-    };
     const item = this.props.item;
     let totalPrice = 0;
     for (let i = 0; i < item.length; i++) {
@@ -48,7 +50,7 @@ export default class CheckoutForm extends React.Component {
     }
     return (
       <div>
-        <h1>My Cart</h1>
+        <h3>Checkout Information</h3>
         <div className="pt-3 pb-3">
           <h6 className="text-muted"><strong>Order Total: ${((totalPrice) / 100).toFixed(2)}</strong></h6>
         </div>
@@ -61,7 +63,7 @@ export default class CheckoutForm extends React.Component {
           <textarea className="formInput formTextArea" required value={this.state.value} onChange={this.handleShippingAddressChange} input="text"></textarea>
           <div className="formFooter pt-3">
             <div className="backToCatalog mb-3 text-muted" onClick={() => this.props.setViewFunction('catalog', {})}>&lt; Continue Shopping</div>
-            <button className="formSubmit  btn btn-primary" onClick={() => this.props.placeOrderFunction(newOrder)} type="submit">Submit</button>
+            <button className="formSubmit  btn btn-primary" type="submit">Submit</button>
           </div>
         </form>
       </div>
