@@ -39,7 +39,7 @@ export default class ProductDetails extends React.Component {
         <div className="descriptionBackground bg-white p-5 container">
           <div className="row">
             <div className="col-md-12">
-              <div className="backToCatalog mb-3 text-muted" onClick={() => this.props.setViewFunction('catalog', {})}>&lt; Back to Catalog</div>
+              <div className="backToCatalog mb-3 text-muted" onClick={() => this.props.setViewFunction('catalog', {})}><i className="fas fa-angle-left"></i> Back to Catalog</div>
             </div>
           </div>
           <div className="row mb-5">
