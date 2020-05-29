@@ -62,7 +62,7 @@ export default class CheckoutForm extends React.Component {
           <h6 className="formTitle pt-4 rounded">Shipping Address</h6>
           <textarea className="formInput formTextArea" required value={this.state.value} onChange={this.handleShippingAddressChange} input="text"></textarea>
           <div className="formFooter pt-3">
-            <div className="backToCatalog mb-3 text-muted" onClick={() => this.props.setViewFunction('catalog', {})}>&lt; Continue Shopping</div>
+            <div className="backToCatalog mb-3 text-muted" onClick={() => this.props.setViewFunction('catalog', {})}><i className="fas fa-angle-left"></i> Continue Shopping</div>
             <button className="formSubmit  btn btn-primary" type="submit">Submit</button>
           </div>
         </form>
