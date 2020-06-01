@@ -38,26 +38,22 @@ export default class ProductDetails extends React.Component {
       return (
         <div className="descriptionBackground bg-white p-5 container">
           <div className="row">
-            <div className="col-md-12">
-              <div className="backToCatalog mb-3 text-muted" onClick={() => this.props.setViewFunction('catalog', {})}><i className="fas fa-angle-left"></i> BACK</div>
+            <div className="col-md-12 ml-4 mb-3">
+              <div className="backToCatalog text-muted" onClick={() => this.props.setViewFunction('catalog', {})}><i className="fas fa-angle-left"></i> CONTINUE SHOPPING</div>
             </div>
           </div>
           <div className="row mb-5">
             <div className="col-md-5">
               <div className="descriptionImageBox d-flex align-self-center">
-                <img className="descriptionImage" alt="An image of the product" title="product image" src={product.image} />
+                <img className="descriptionImage" alt="An image of the product" title="product image" src={product.imageDetail} />
               </div>
             </div>
             <div className="col-md-7">
               <h2 className="descriptionName">{product.name}</h2>
               <h4 className="text-muted">${((product.price) / 100).toFixed(2)}</h4>
-              <p className="descriptionShortDescription">{product.shortDescription}</p>
+              <p className="descriptionLongDescription">{product.shortDescription}</p>
+              <h6 className="text-muted">Made with: {product.madewith}</h6>
               <button onClick={() => this.props.addToCartFunction(product)} className="btn btn-primary">Add to Cart</button>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-md-12">
-              <p className="descriptionLongDescription">{product.longDescription}</p>
             </div>
           </div>
         </div>
