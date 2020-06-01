@@ -36,25 +36,24 @@ export default class ProductDetails extends React.Component {
       );
     } else {
       return (
-        <div className="descriptionBackground bg-white pl-5 pr-5 pt-4 pb-4 container">
-          <div className="row">
-            <div className="col-md-12">
-              <div className="backToCatalog text-muted" onClick={() => this.props.setViewFunction('catalog', {})}><i className="fas fa-angle-left"></i> CONTINUE SHOPPING</div>
-            </div>
-          </div>
-          <div className="row mb-5">
-            <div className="col-md-6">
-              <div className="descriptionImageBox d-flex align-self-center">
-                <img className="descriptionImage" alt="An image of the product" title="product image" src={product.imageDetail} />
+        <div className="descriptionContainer pt-5 justify-content-center">
+          <div className="descriptionBackground d-flex bg-white p-5 container">
+            <div className="backToCatalog" onClick={() => this.props.setViewFunction('catalog', {})}><i className="far fa-times-circle back"></i></div>
+            <div className="row">
+              <div className="col-md-6">
+                <div className="descriptionImageBox">
+                  <img className="descriptionImage" alt="An image of the product" title="product image" src={product.imageDetail} />
+                </div>
               </div>
-            </div>
-            <div className="productDetails col-md-6">
-              <div>
-                <h2 className="descriptionName">{product.name}</h2>
-                <h4 className="text-muted">${((product.price) / 100).toFixed(2)}</h4>
-                <p className="descriptionLongDescription">{product.shortDescription}</p>
-                <h6 className="text-muted">Material: <em>{product.madewith}</em></h6>
-                <button onClick={() => this.props.addToCartFunction(product)} className="btn btn-primary mt-3">Add to Cart</button>
+              <div className="productDetails col-md-6">
+                <div>
+                  <h2 className="descriptionName">{product.name}</h2>
+                  <h4 className="descriptionProductPrice">${((product.price) / 100).toFixed(2)}</h4>
+                  <h6 className="text-muted">Material: <em>{product.madewith}</em></h6>
+                  <div className="descriptionDivider"></div>
+                  <p className="descriptionShortDescription">{product.shortDescription}</p>
+                  <button onClick={() => this.props.addToCartFunction(product)} className="addToCartButton">Add to Cart</button><br/>
+                </div>
               </div>
             </div>
           </div>
