@@ -38,6 +38,7 @@ export default class ProductDetails extends React.Component {
       return (
         <div className="descriptionContainer pt-5 justify-content-center">
           <div className="descriptionBackground d-flex bg-white p-5 container">
+            <div className="backToCatalog" onClick={() => this.props.setViewFunction('catalog', {})}><i className="far fa-times-circle back"></i></div>
             <div className="row">
               <div className="col-md-6">
                 <div className="descriptionImageBox">
@@ -51,9 +52,7 @@ export default class ProductDetails extends React.Component {
                   <h6 className="text-muted">Material: <em>{product.madewith}</em></h6>
                   <div className="descriptionDivider"></div>
                   <p className="descriptionShortDescription">{product.shortDescription}</p>
-
                   <button onClick={() => this.props.addToCartFunction(product)} className="addToCartButton">Add to Cart</button><br/>
-                  <div className="backToCatalog" onClick={() => this.props.setViewFunction('catalog', {})}><i className="far fa-times-circle back"></i></div>
                 </div>
               </div>
             </div>
