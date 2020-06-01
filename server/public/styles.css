@@ -8,6 +8,7 @@
 body{
   background:url("images/TNTBackground.jpg");
   background-size:cover;
+  background-attachment: fixed;;
   height:100%;
 }
 
@@ -66,12 +67,12 @@ header .logo{
 }
 .descriptionName{
   font-family:bebas neue;
-  font-size:2.5rem;
-  margin-bottom:0px;
+  color:#444444;
+  font-size:3rem;
 }
 .productDivider{
   border-top: 3px solid #2f969a;
-  width:25px;
+  width:35px;
   opacity:.75;
   margin:5px auto;
 
@@ -84,6 +85,10 @@ header .logo{
 .descriptionProductPrice{
   font-size:1.25rem;
   font-family:rubik;
+  margin-bottom:15px;
+}
+.descriptionImage{
+  height:340px;
 }
 .addToCartButton{
 color:#E63933;
@@ -129,9 +134,6 @@ outline:none;
   transition:ease all .2s;
 }
 
-body{
-  background-color:#f8f9fa;
-}
 
 .productCard{
   height:100%;
@@ -195,16 +197,21 @@ body{
 
 .back{
   color:#E63933;
-  opacity:.75;
+  opacity:.65;
   position:absolute;
   top:25px;
   right:25px;
   font-size:25px;
-  z-index:25
+  z-index:25;
+  transition:ease all .25s;
 }
-
-.backToCatalog:hover{
+.back:hover{
   color:#E63933;
+  opacity:1;
+  position:absolute;
+  top:25px;
+  right:25px;
+  z-index:25;
 }
 
 .cartItemSummaryImage{
