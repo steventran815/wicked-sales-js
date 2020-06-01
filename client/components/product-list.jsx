@@ -30,7 +30,9 @@ export default class ProductList extends React.Component {
       );
     });
     return (
-      <div className="row">{productsList}</div>
+      <div className="containter productBackground">
+        <div className="row">{productsList}</div>
+      </div>
     );
   }
 }
