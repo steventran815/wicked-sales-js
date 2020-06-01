@@ -24,7 +24,8 @@ app.get('/api/products/', (req, res, next) => {
            "name",
            "price",
            "productId",
-           "shortDescription"
+           "shortDescription",
+           "imageDetail"
       from "products"
   `;
   db.query(sql)
