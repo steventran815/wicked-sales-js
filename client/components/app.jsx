@@ -89,8 +89,8 @@ export default class App extends React.Component {
     if (this.state.view.name === 'catalog') {
       return (
         <div>
-          <Header setViewFunction={this.setView} cartItemCount={this.state.cart.length}/>
-          <div className="container pt-5">
+          <Header setViewFunction={this.setView} cartItemCount={this.state.cart.length} />
+          <div className="container">
             <ProductList setViewFunction={this.setView} />
           </div>
         </div>
@@ -99,7 +99,7 @@ export default class App extends React.Component {
       return (
         <div>
           <Header setViewFunction={this.setView} cartItemCount={this.state.cart.length} />
-          <div className="container pt-5">
+          <div className="container">
             <ProductDetails addToCartFunction={this.addToCart} setViewFunction={this.setView} productId={this.state.view.params.productId} params={this.state.view.params} />
           </div>
         </div >
@@ -108,7 +108,7 @@ export default class App extends React.Component {
       return (
         <div>
           <Header setViewFunction={this.setView} cartItemCount={this.state.cart.length} />
-          <div className="container pt-5">
+          <div className="container">
             <CartSummary item={this.state.cart} addToCartFunction={this.addToCart} setViewFunction={this.setView} productId={this.state.view.params.productId} params={this.state.view.params} />
           </div>
         </div>
