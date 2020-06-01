@@ -1,7 +1,16 @@
+body{
+  background:url("images/TNTBackground.jpg");
+  background-size:cover;
+}
+
 .headerBackground{
   background-color: #2c2c2c;
 }
 
+.productBackground{
+  background-color:#FFFFFF;
+  padding:25px;
+}
 header{
   padding: 30px 25px;
 }
@@ -31,6 +40,10 @@ header .logo{
   position:relative;
   opacity:1;
   padding:5px;
+}
+.productDetails{
+  display:flex;
+  align-items:center;
 }
 .productImage:hover{
   width:90%;
@@ -72,8 +85,8 @@ body{
 }
 
 .productDescription{
-  padding:25px 10px 10px;
-  margin:5px;
+  padding:10px;
+  text-align:center;
 }
 
 .cardContainer{
@@ -81,7 +94,7 @@ body{
 }
 
 .productTitle{
-  margin-bottom:.75rem;
+  margin-bottom:.25rem;
   color:#3c3c3c;
 }
 
@@ -101,6 +114,7 @@ body{
 
 .descriptionBackground{
   box-shadow: 0px 0px 7px #d5d5d5;
+  width:85%;
 }
 
 .backToCatalog{
