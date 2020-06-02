@@ -39,13 +39,13 @@ export default class ProductDetails extends React.Component {
         <div className="descriptionContainer pt-5 justify-content-center">
           <div className="descriptionBackground d-flex bg-white p-5 container">
             <div className="backToCatalog" onClick={() => this.props.setViewFunction('catalog', {})}><i className="far fa-times-circle back"></i></div>
-            <div className="row">
-              <div className="col-md-6">
+            <div className="row w-100">
+              <div className="col-md-7">
                 <div className="descriptionImageBox">
                   <img className="descriptionImage" alt="An image of the product" title="product image" src={product.imageDetail} />
                 </div>
               </div>
-              <div className="productDetails col-md-6">
+              <div className="productDetails col-md-5">
                 <div>
                   <h2 className="descriptionName">{product.name}</h2>
                   <div className="descriptionDivider"></div>

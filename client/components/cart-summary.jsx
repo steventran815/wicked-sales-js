@@ -21,17 +21,19 @@ export default class CartSummary extends React.Component {
       checkoutMessage = <h3 className="text-muted mt-5">There are no items in your cart</h3>;
     } else {
       checkoutMessage = null;
-      checkoutSummary = <button onClick={() => this.props.setViewFunction('checkout', {})} className="checkout-button btn btn-primary">Checkout</button>;
+      checkoutSummary = <button onClick={() => this.props.setViewFunction('checkout', {})} className="addToCartButton">CHECKOUT</button>;
     }
 
     return (
-      <div>
-        <div className="backToCatalog mb-3 text-muted" onClick={() => this.props.setViewFunction('catalog', {})}><i className="fas fa-angle-left"></i> BACK</div>
-        <h5 className="summaryTitle mb-3">Cart</h5>
+      <div className="summaryBackground">
+        <div className="backToCatalog mb-3 text-muted" onClick={() => this.props.setViewFunction('catalog', {})}><i className="fas fa-angle-left"></i> CONTINUE SHOPPING</div>
         {checkoutMessage}
         {cartList}
-        <div className="summaryFooter mt-5 mb-5">
-          <h5 className="totalPrice">Total: ${((totalPrice) / 100).toFixed(2)}</h5>
+        <div className="summaryFooter mt-3 mb-5">
+          <div>
+            <strong><h4 className="totalPriceHeader">Total: <span className="totalPrice">${((totalPrice) / 100).toFixed(2)}</span></h4></strong>
+            <div className="mb-0 descriptionDivider"></div>
+          </div>
           {checkoutSummary}
         </div>
       </div>
