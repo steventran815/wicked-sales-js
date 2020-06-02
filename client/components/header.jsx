@@ -2,7 +2,6 @@ import React from 'react';
 
 export default class Header extends React.Component {
   render() {
-
     return (
       <div className="headerBackground">
         <header className="container header-container d-flex align-items-center justify-content-between">

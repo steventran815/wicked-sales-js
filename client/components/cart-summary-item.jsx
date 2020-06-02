@@ -7,8 +7,8 @@ export default class CartSummaryItem extends React.Component {
     const itemName = item.name;
     const itemImage = item.image;
     const itemShortDescription = item.shortDescription;
+    const itemMaterial = item.madewith;
     const itemPrice = ((item.price) / 100).toFixed(2);
-
     return (
       <div className="cartItemSummaryDiv bg-white container p-5">
         <div className="row w-100 align-items-center d-flex">
@@ -21,6 +21,7 @@ export default class CartSummaryItem extends React.Component {
             <h4 className="cartItemSummaryName"><strong>{itemName}</strong></h4>
             <div className="descriptionDivider"></div>
             <h5 className="text-muted">${itemPrice}</h5>
+            {itemMaterial}
             <p className="cartItemSummaryShortDescription">{itemShortDescription}</p>
             <h6 className="removeItem" onClick={() => this.props.setViewFunction('checkout', {})}><i className="far fa-times-circle"></i> REMOVE</h6>
           </div>
