@@ -7,7 +7,7 @@ export default function ProductListItem(props) {
   const productPrice = ((product.price) / 100).toFixed(2);
   const productImageDetail = product.imageDetail;
   return (
-    <div onClick={() => props.setViewFunction('details', { productId: props.product.productId })} className="col-md-4 mb-5">
+    <div onClick={() => props.setViewFunction('details', { productId: props.product.productId })} className="col-md-4 mb-5 productCard">
 
       <div className="productImageDiv">
         <img className="productImage" alt="An image of a product" title="product Image" src={productImage}></img>
@@ -16,7 +16,7 @@ export default function ProductListItem(props) {
       <div className="productDescription">
         <h5 className="productTitle"><strong>{productName}</strong></h5>
         <div className="productDivider text-align-center"></div>
-        <p><span className="price">${productPrice}</span></p>
+        <p className="price">${productPrice}</p>
 
       </div>
     </div>

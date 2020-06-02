@@ -4,6 +4,7 @@ import ProductList from './product-list.jsx';
 import ProductDetails from './product-details.jsx';
 import CartSummary from './cart-summary.jsx';
 import CheckoutForm from './checkout-form.jsx';
+import DemoModal from './demoModal.jsx';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -11,12 +12,14 @@ export default class App extends React.Component {
     this.addToCart = this.addToCart.bind(this);
     this.setView = this.setView.bind(this);
     this.placeOrder = this.placeOrder.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
     this.state = {
       cart: [],
       view: {
         name: 'catalog',
         params: {}
-      }
+      },
+      demoModal: true
     };
   }
 
@@ -45,6 +48,12 @@ export default class App extends React.Component {
         });
       })
       .catch(error => console.error('Error:', error));
+  }
+
+  handleDemo() {
+    this.setState({
+      demoModal: false
+    });
   }
 
   setView(name, params) {
@@ -86,9 +95,16 @@ export default class App extends React.Component {
   }
 
   render() {
+    let demoModal = null;
+    if (this.state.demoModal === true) {
+      demoModal = <DemoModal handleDemoFunction={this.handleDemo}/>;
+    } else {
+      demoModal = false;
+    }
     if (this.state.view.name === 'catalog') {
       return (
         <div>
+          {demoModal}
           <Header setViewFunction={this.setView} cartItemCount={this.state.cart.length} />
           <div className="container">
             <ProductList setViewFunction={this.setView} />

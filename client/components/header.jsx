@@ -1,15 +1,14 @@
 import React from 'react';
 
 export default class Header extends React.Component {
-
   render() {
     return (
       <div className="headerBackground">
-        <header className="container">
-          <h1 onClick={() => this.props.setViewFunction('catalog', {})} className="title d-inline">Top-Notch Tees 👌</h1>
-          <div onClick={() => this.props.setViewFunction('cart', {})} className="cartItemDiv text-white float-right">
-            <div className="cartItemCount d-inline ">{this.props.cartItemCount} Items </div>
-            <i className="fa fa-shopping-cart d-inline"></i>
+        <header className="container header-container d-flex align-items-center justify-content-between">
+          <img onClick={() => this.props.setViewFunction('catalog', {})} className="header-logo d-inline" src="images/top-notch-header-logo.png" />
+          <div id="checkout" className="cartItemDiv text-white float-right">
+            <div onClick={() => this.props.setViewFunction('cart', {})} className="cartItemCount d-inline ">{this.props.cartItemCount} Items </div>
+            <i id="shoppingCart" className="fa fa-shopping-cart d-inline"></i>
           </div>
         </header>
       </div>
