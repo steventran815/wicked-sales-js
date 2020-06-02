@@ -10,6 +10,46 @@ body{
   background-size:cover;
   background-attachment: fixed;;
   height:100%;
+  position:relative;
+}
+
+.demoContainer{
+  background-color:rgba(0,0,0,.75);
+  position:absolute;
+  top:0px;
+  left:0px;
+  height:100vh;
+  width:100%;
+  z-index:15;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.demoModal{
+  background-color:white;
+  min-width:50%;
+  max-width:650px;
+  padding:25px;
+  text-align:center;
+  font-family:rubik;
+}
+
+.demoModal h5{
+  font-family:rubik;
+  padding:0px 25px 25px;;
+}
+
+.demoModal span{
+  color:#e63933
+}
+
+.demoModal h1{
+  font-family: teko;
+}
+
+.demoModal h4{
+  font-family: teko;
 }
 
 .headerBackground{

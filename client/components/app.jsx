@@ -95,14 +95,16 @@ export default class App extends React.Component {
   }
 
   render() {
+    let demoModal = null;
     if (this.state.demoModal === true) {
-      return (
-        <DemoModal handleDemoFunction={this.handleDemo}/>
-      );
+      demoModal = <DemoModal handleDemoFunction={this.handleDemo}/>;
+    } else {
+      demoModal = false;
     }
     if (this.state.view.name === 'catalog') {
       return (
         <div>
+          {demoModal}
           <Header setViewFunction={this.setView} cartItemCount={this.state.cart.length} />
           <div className="container">
             <ProductList setViewFunction={this.setView} />
