@@ -101,9 +101,9 @@ export default class App extends React.Component {
     fetch('/api/cart', req)
       .then(() => {
         const cartIdNumer = (parseInt(cartItem.cartItemId));
-        const newCart = cart.filter(item => item.cartItemId !== cartIdNumer);
+        const updatedCart = cart.filter(item => item.cartItemId !== cartIdNumer);
         this.setState({
-          cart: newCart
+          cart: updatedCart
         });
       }).catch(err => console.error(err));
   }
