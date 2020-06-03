@@ -31,6 +31,7 @@ export default class ProductList extends React.Component {
     });
     return (
       <div className="containter productBackground">
+        <div className="banner"></div>
         <div className="row">{productsList}</div>
       </div>
     );

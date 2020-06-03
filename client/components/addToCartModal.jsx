@@ -4,7 +4,7 @@ export default class DemoModal extends React.Component {
 
   render() {
     return (
-      <div className="demoContainer">
+      <div className="addToCartContainer">
         <div className="demoModal container">
           <h1 className="modalTitle">Lookin&apos; Good!</h1>
           <center><div className="descriptionDivider"></div></center>
