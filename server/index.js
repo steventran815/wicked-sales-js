@@ -153,6 +153,27 @@ app.post('/api/cart/', (req, res, next) => {
     .catch(err => next(err));
 });
 
+app.delete('/api/cart', (req, res, next) => {
+  const { cartId } = req.session;
+  const { cartItemId, productId } = req.body;
+  if (!cartId) next(new ClientError('"cartId" does not exist', 400));
+  if (isNaN(productId) || productId < 0) next(new ClientError('"productId" must be a positive integer'), 400);
+  const sql = `
+  DELETE from "cartItems"
+         where "cartId" = $1
+         and "productId" = $2
+         and "cartItemId" = $3
+         returning *;
+  `;
+  const values = [cartId, productId, cartItemId];
+  db.query(sql, values)
+    .then(result => {
+      const deletedProduct = result.rows[0];
+      if (!deletedProduct) next(new ClientError(`Cannot find product with ID: ${productId}`), 404);
+      res.status(204).json(deletedProduct);
+    });
+});
+
 app.post('/api/orders', (req, res, next) => {
   if (!req.session.cartId) {
     return res.status(400).json({ error: 'No Cart ID in Session' });

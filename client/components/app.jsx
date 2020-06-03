@@ -5,6 +5,7 @@ import ProductDetails from './product-details.jsx';
 import CartSummary from './cart-summary.jsx';
 import CheckoutForm from './checkout-form.jsx';
 import DemoModal from './demoModal.jsx';
+import Footer from './footer.jsx';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -14,6 +15,7 @@ export default class App extends React.Component {
     this.placeOrder = this.placeOrder.bind(this);
     this.handleDemo = this.handleDemo.bind(this);
     this.handleAddedToCart = this.handleAddedToCart.bind(this);
+    this.deleteCartItem = this.deleteCartItem.bind(this);
     this.state = {
       cart: [],
       view: {
@@ -86,6 +88,26 @@ export default class App extends React.Component {
       .catch(err => console.error(err));
   }
 
+  deleteCartItem(cartItem) {
+    const cart = this.state.cart;
+    const req = {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(cartItem)
+    };
+
+    fetch('/api/cart', req)
+      .then(() => {
+        const cartIdNumer = (parseInt(cartItem.cartItemId));
+        const updatedCart = cart.filter(item => item.cartItemId !== cartIdNumer);
+        this.setState({
+          cart: updatedCart
+        });
+      }).catch(err => console.error(err));
+  }
+
   addToCart(product) {
     fetch('/api/cart', {
       method: 'POST',
@@ -118,6 +140,7 @@ export default class App extends React.Component {
           <div className="container">
             <ProductList setViewFunction={this.setView} />
           </div>
+          <Footer />
         </div>
       );
     } else if (this.state.view.name === 'details') {
@@ -127,6 +150,7 @@ export default class App extends React.Component {
           <div className="container">
             <ProductDetails handleAddToCartFunction={this.handleAddedToCart} addToCartFunction={this.addToCart} addedToCart={this.state.addToCart} setViewFunction={this.setView} productId={this.state.view.params.productId} params={this.state.view.params} />
           </div>
+          <Footer />
         </div >
       );
     } else if (this.state.view.name === 'cart') {
@@ -134,7 +158,7 @@ export default class App extends React.Component {
         <div>
           <Header setViewFunction={this.setView} cartItemCount={this.state.cart.length} />
           <div className="container">
-            <CartSummary item={this.state.cart} addToCartFunction={this.addToCart} setViewFunction={this.setView} productId={this.state.view.params.productId} params={this.state.view.params} />
+            <CartSummary deleteCartItemFunction={this.deleteCartItem} item={this.state.cart} addToCartFunction={this.addToCart} setViewFunction={this.setView} productId={this.state.view.params.productId} params={this.state.view.params} />
           </div>
         </div>
       );
