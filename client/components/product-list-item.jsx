@@ -7,7 +7,7 @@ export default function ProductListItem(props) {
   const productPrice = ((product.price) / 100).toFixed(2);
   const productImageDetail = product.imageDetail;
   return (
-    <div onClick={() => props.setViewFunction('details', { productId: props.product.productId })} className="col-md-4 mb-5 productCard">
+    <div onClick={() => props.setViewFunction('details', { productId: props.product.productId })} className="col-md-4 mt-3 productCard">
 
       <div className="productImageDiv">
         <img className="productImage" alt="An image of a product" title="product Image" src={productImage}></img>
