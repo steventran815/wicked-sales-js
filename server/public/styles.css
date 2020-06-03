@@ -15,6 +15,19 @@ body{
 
 .demoContainer{
   background-color:rgba(0,0,0,.75);
+  position:fixed;
+  top:0px;
+  left:0px;
+  height:100vh;
+  width:100%;
+  z-index:15;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.addToCartContainer{
+  background-color:rgba(0,0,0,.75);
   position:absolute;
   top:0px;
   left:0px;
@@ -33,7 +46,7 @@ body{
   padding:25px;
   text-align:center;
   font-family:rubik;
-  position: absolute;
+  position: fixed;
 }
 
 .demoModal h5{
@@ -47,6 +60,7 @@ body{
 
 .demoModal h1{
   font-family: teko;
+  font-size:3rem;
 }
 
 .demoModal h4{
@@ -64,10 +78,8 @@ body{
 
 .productBackground{
   background-color:#f8f8f8;
-  padding:25px;
+  padding:50px;
 }
-
-
 
 .summaryBackground{
   background-color:#f8f8f8;
@@ -76,7 +88,6 @@ body{
 header{
   padding: 30px 25px;
 }
-
 
 .removeItem{
   color: #e63933;
@@ -92,15 +103,16 @@ header .header-logo{
 .productImageDiv{
   position:relative;
 }
+
 .productImageDetail{
   width:100%;
-  height:250px;
   object-fit:scale-down;
   margin-top:25px;
   position:relative;
   opacity:1;
   padding:5px;
 }
+
 .productDetails{
   display:flex;
   align-items:center;
@@ -134,9 +146,9 @@ header .header-logo{
   position:relative;
   display:flex;
   align-items:center;
-  height:700px;
   box-shadow: 0px 0px 7px #d5d5d5;
   width:100%;
+  height:700px;
 }
 
 .descriptionProductPrice{
@@ -197,8 +209,7 @@ header .header-logo{
 }
 
 .productImage:hover{
-  width:90%;
-  height:250px;
+  width:100%;
   object-fit:scale-down;
   margin-top:25px;
   position:absolute;
@@ -207,7 +218,7 @@ header .header-logo{
 
 .productImage{
   width:100%;
-  height:250px;
+
   object-fit:scale-down;
   margin-top:25px;
   position:absolute;
@@ -221,7 +232,6 @@ header .header-logo{
 .productCard{
   cursor:pointer;
 }
-
 
 .productDescription{
   padding:10px;
@@ -237,13 +247,14 @@ header .header-logo{
   color:#3c3c3c;
   font-family:teko;
   font-weight:600;
-  font-size:1.75rem;
+  font-size:2rem;
 }
 
 .price{
   color:#999999;
   font-weight:500;
   margin-bottom:0px;
+  font-size: 1.15rem;
 }
 
 .descriptionImage{
@@ -262,6 +273,15 @@ header .header-logo{
   color:#acacac;
   transition:ease all .35s;
   font-family:teko;
+}
+.continueShopping{
+  font-size:1.5rem;
+  cursor:pointer;
+  transition:all ease .15s;
+  color:#acacac;
+  transition:ease all .35s;
+  font-family:teko;
+  display:inline;
 }
 
 .backToCatalog:hover{
@@ -286,11 +306,12 @@ header .header-logo{
   z-index:25;
 }
 
-
 .cartItemSummaryName{
   font-family:teko;
   font-size:3rem;
+  color:#444444;
 }
+
 .descriptionContainer{
   padding:25px;
   font-family:rubik;
@@ -317,7 +338,7 @@ header .header-logo{
 .cartItemDiv{
   cursor:pointer;
   font-family:bebas neue;
-  font-size:1.25rem;
+  font-size:1.5rem;
 }
 
 .totalPriceHeader{
@@ -342,6 +363,9 @@ header .header-logo{
   padding:0 10px;
   width:100%;
 }
+.formTitle{
+  font-family:rubik;
+}
 
 .formSubmit{
   float:right;
@@ -349,6 +373,55 @@ header .header-logo{
 
 .formTextArea{
   height:100px;
+}
+
+.checkoutTitle{
+  font-family:teko;
+  font-size:2.75rem;
+  display:inline
+}
+
+.checkboxDiv{
+  display:flex;
+  align-items:center;
+  margin-top:15px;
+}
+
+.checkoutPrice{
+  color:#2f969a;
+  display:inline;
+}
+
+.checkoutPriceForm{
+  color:#2f969a;
+  display:inline;
+  float:right;
+  font-size:1.5rem;
+}
+
+.formCheckbox{
+  padding:20px;
+  display:inline;
+}
+
+.checkoutPrice{
+  font-family:rubik;
+  font-size:1.25rem;
+}
+
+.demoTitle{
+  color:#2f969a;
+  font-family:2rem;
+}
+
+.checkboxParagraph{
+  display:inline;
+  margin-bottom:0px;
+  margin-left:10px;
+  margin-top:3px;
+  font-size:14px;
+  font-family:rubik;
+  color:#8c8c8c;
 }
 
 .error-message{

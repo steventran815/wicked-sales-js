@@ -20,7 +20,7 @@ export default class CartSummaryItem extends React.Component {
           <div className="col-md-5 descriptionContainer">
             <h4 className="cartItemSummaryName"><strong>{itemName}</strong></h4>
             <div className="descriptionDivider"></div>
-            <h5 className="text-muted">${itemPrice}</h5>
+            <h5 className="checkoutPrice"><span>${itemPrice}</span></h5>
             {itemMaterial}
             <p className="cartItemSummaryShortDescription">{itemShortDescription}</p>
             <h6 className="removeItem" onClick={() => this.props.setViewFunction('checkout', {})}><i className="far fa-times-circle"></i> REMOVE</h6>

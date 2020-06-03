@@ -48,7 +48,6 @@ export default class ProductDetails extends React.Component {
       return (
         null
       );
-
     } else {
       return (
         <div>

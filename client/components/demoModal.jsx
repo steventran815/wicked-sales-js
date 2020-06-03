@@ -7,7 +7,7 @@ export default class DemoModal extends React.Component {
     return (
       <div className="demoContainer">
         <div className="demoModal container">
-          <h1>Hey There!</h1>
+          <h1 className="demoTitle">Hey There!</h1>
           <center><div className="descriptionDivider"></div></center>
           <h5><span>Top-Notch Tees</span> is a full-stack application built with React.js and Node/Express made <br></br><span>for demonstration purposes</span>.
             <hr className="w-100"></hr>
