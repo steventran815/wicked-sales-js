@@ -13,13 +13,15 @@ export default class App extends React.Component {
     this.setView = this.setView.bind(this);
     this.placeOrder = this.placeOrder.bind(this);
     this.handleDemo = this.handleDemo.bind(this);
+    this.handleAddedToCart = this.handleAddedToCart.bind(this);
     this.state = {
       cart: [],
       view: {
         name: 'catalog',
         params: {}
       },
-      demoModal: true
+      demoModal: true,
+      addToCart: false
     };
   }
 
@@ -46,8 +48,7 @@ export default class App extends React.Component {
             params: {}
           }
         });
-      })
-      .catch(error => console.error('Error:', error));
+      }).catch(error => console.error('Error:', error));
   }
 
   handleDemo() {
@@ -56,12 +57,19 @@ export default class App extends React.Component {
     });
   }
 
+  handleAddedToCart() {
+    this.setState({
+      addToCart: !this.state.addToCart
+    });
+  }
+
   setView(name, params) {
     this.setState({
       view: {
         name: name,
         params: params
-      }
+      },
+      addToCart: false
     });
   }
 
@@ -88,7 +96,8 @@ export default class App extends React.Component {
     }).then(res => res.json())
       .then(data =>
         this.setState({
-          cart: this.state.cart.concat(data)
+          cart: this.state.cart.concat(data),
+          addToCart: true
         })
       )
       .catch(err => console.error(err));
@@ -97,7 +106,7 @@ export default class App extends React.Component {
   render() {
     let demoModal = null;
     if (this.state.demoModal === true) {
-      demoModal = <DemoModal handleDemoFunction={this.handleDemo}/>;
+      demoModal = <DemoModal setViewFunction={this.setView} handleDemoFunction={this.handleDemo}/>;
     } else {
       demoModal = false;
     }
@@ -116,7 +125,7 @@ export default class App extends React.Component {
         <div>
           <Header setViewFunction={this.setView} cartItemCount={this.state.cart.length} />
           <div className="container">
-            <ProductDetails addToCartFunction={this.addToCart} setViewFunction={this.setView} productId={this.state.view.params.productId} params={this.state.view.params} />
+            <ProductDetails handleAddToCartFunction={this.handleAddedToCart} addToCartFunction={this.addToCart} addedToCart={this.state.addToCart} setViewFunction={this.setView} productId={this.state.view.params.productId} params={this.state.view.params} />
           </div>
         </div >
       );
