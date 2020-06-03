@@ -1,6 +1,18 @@
 import React from 'react';
 
 export default class CartSummaryItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleRemoveItem = this.handleRemoveItem.bind(this);
+  }
+
+  handleRemoveItem() {
+    const cartItem = {
+      cartItemId: JSON.stringify(this.props.item.cartItemId),
+      productId: JSON.stringify(this.props.item.productId)
+    };
+    this.props.deleteCartItemFunction(cartItem);
+  }
 
   render() {
     const item = this.props.item;
@@ -23,7 +35,7 @@ export default class CartSummaryItem extends React.Component {
             <h5 className="checkoutPrice"><span>${itemPrice}</span></h5>
             {itemMaterial}
             <p className="cartItemSummaryShortDescription">{itemShortDescription}</p>
-            <h6 className="removeItem" onClick={() => this.props.setViewFunction('checkout', {})}><i className="far fa-times-circle"></i> REMOVE</h6>
+            <h6 className="removeItem" onClick={this.handleRemoveItem}><i className="far fa-times-circle"></i> REMOVE</h6>
           </div>
         </div>
       </div>

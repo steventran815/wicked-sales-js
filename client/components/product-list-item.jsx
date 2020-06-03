@@ -17,7 +17,6 @@ export default function ProductListItem(props) {
         <h5 className="productTitle"><strong>{productName}</strong></h5>
         <div className="productDivider text-align-center"></div>
         <p className="price">${productPrice}</p>
-
       </div>
     </div>
 
