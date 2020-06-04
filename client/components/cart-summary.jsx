@@ -26,10 +26,11 @@ export default class CartSummary extends React.Component {
 
     return (
       <div className="summaryBackground">
+        <h3 className="checkoutTitle">Cart</h3>
         <div className="backToCatalog mb-3 text-muted" onClick={() => this.props.setViewFunction('catalog', {})}><i className="fas fa-angle-left"></i> CONTINUE SHOPPING</div>
         {checkoutMessage}
         {cartList}
-        <div className="summaryFooter mt-3 mb-5">
+        <div className="summaryFooter mt-4 mb-5">
           <div>
             <strong><h4 className="totalPriceHeader">Total: <span className="totalPrice">${((totalPrice) / 100).toFixed(2)}</span></h4></strong>
             <div className="mb-0 descriptionDivider"></div>
