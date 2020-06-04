@@ -50,8 +50,10 @@ export default class CheckoutForm extends React.Component {
     }
     return (
       <div className="productBackground">
-        <h3 className="checkoutTitle">Checkout</h3>
-        <h6 className="checkoutPriceForm"><strong>Total: ${((totalPrice) / 100).toFixed(2)}</strong></h6>
+        <div className="formHeader d-flex align-items-center justify-content-between">
+          <h3 className="checkoutTitle">Checkout</h3>
+          <strong><h4 className="totalPriceHeader">Total: <span className="totalPrice">${((totalPrice) / 100).toFixed(2)}</span></h4></strong>
+        </div>
         <div className="descriptionDivider"></div>
         <div className="pb-3">
 

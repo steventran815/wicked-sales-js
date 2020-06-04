@@ -52,8 +52,8 @@ export default class ProductDetails extends React.Component {
       return (
         <div>
           {addedToCartModal}
-          <div className="descriptionContainer pt-5 justify-content-center">
-            <div className="descriptionBackground d-flex bg-white p-5 container">
+          <div className="descriptionContainer  d-flex justify-content-center">
+            <div className="descriptionBackground d-flex bg-white justify-content-center container">
               <div className="backToCatalog" onClick={() => this.props.setViewFunction('catalog', {})}><i className="far fa-times-circle back"></i></div>
               <div className="row w-100">
                 <div className="col-md-7">

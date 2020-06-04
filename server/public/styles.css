@@ -28,16 +28,17 @@ body{
 
 .addToCartContainer{
   background-color:rgba(0,0,0,.75);
-  position:absolute;
+  position:fixed;
   top:0px;
   left:0px;
-  height:100vh;
+  height:100%;
   width:100%;
   z-index:15;
   display:flex;
   justify-content:center;
   align-items:center;
 }
+
 
 .demoModal{
   background-color:white;
@@ -91,7 +92,8 @@ body{
 
 .summaryBackground{
   background-color:#f8f8f8;
-  padding:25px 50px;
+  justify-content:center;
+  padding:25px;
 }
 header{
   padding: 30px 25px;
@@ -343,7 +345,7 @@ header .header-logo{
 }
 
 .cartItemSummaryDiv{
-  box-shadow: 0px 0px 3px #d5d5d5;
+  box-shadow: 0px 4px 6px #d5d5d5;
 }
 
 .cartItemDiv{
@@ -389,7 +391,8 @@ header .header-logo{
 .checkoutTitle{
   font-family:teko;
   font-size:2.75rem;
-  display:inline
+  display:inline;
+  margin-bottom:0px;
 }
 
 .banner{
@@ -427,7 +430,7 @@ header .header-logo{
 }
 
 .demoTitle{
-  color:#2f969a;
+  color:#3c3c3c;
   font-family:2rem;
 }
 
@@ -449,7 +452,11 @@ display:inline-block
   display:flex;
   justify-content:space-between;
   align-items:center;
+  background-color:white;
+  padding:25px;
+  box-shadow: 0px 5px 5px #d5d5d5;
 }
+
 
 .errorDiv{
   background-color:rgba(0,0,0,.50);
