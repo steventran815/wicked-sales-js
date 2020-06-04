@@ -320,6 +320,9 @@ header .header-logo{
   color:#444444;
 }
 
+.no-items{
+  font-family:teko;
+}
 .descriptionContainer{
   padding:25px;
   font-family:rubik;
