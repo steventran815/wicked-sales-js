@@ -22,13 +22,11 @@ export default class CartSummaryItem extends React.Component {
     const itemMaterial = item.madewith;
     const itemPrice = ((item.price) / 100).toFixed(2);
     return (
-      <div className=" pt-3 pb-3 d-flex cartItemSummaryDiv justify-content-center align-items-center bg-white container">
+      <div className=" pt-3 pb-3 mb-4 cartItemSummaryDiv bg-white container">
         <center>
           <div className="row w-100 align-items-center d-flex">
-
             <div className="col-md-7">
-
-              <div className="cartItemSummaryImageContainer d-flex align-items-center justify-content-center">
+              <div className="cartItemSummaryImageContainer">
                 <img src={itemImage} className="cartItemSummaryImage" />
               </div>
             </div>
@@ -41,7 +39,6 @@ export default class CartSummaryItem extends React.Component {
               <h6 className="removeItem" onClick={this.handleRemoveItem}><i className="far fa-times-circle"></i> REMOVE</h6>
             </div>
           </div>
-
         </center>
       </div>
     );

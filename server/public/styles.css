@@ -91,6 +91,12 @@ body{
   padding:25px;
 }
 
+.checkoutFormBackground{
+  background-color:#f8f8f8;
+  padding:50px 25px;
+}
+
+
 .summaryBackground{
   background-color:#f8f8f8;
   justify-content:center;
@@ -143,7 +149,7 @@ header .header-logo{
 .descriptionName{
   font-family:bebas neue;
   color:#444444;
-  font-size:3rem;
+  font-size:2rem;
 }
 .productDivider{
   border-top: 3px solid #2f969a;
@@ -327,7 +333,7 @@ header .header-logo{
   font-family:teko;
 }
 .descriptionContainer{
-  padding:25px;
+  padding:25px 0px;
   font-family:rubik;
 }
 .cartItemSummaryImage{
@@ -341,7 +347,7 @@ header .header-logo{
 }
 
 .cartItemSummaryImageContainer{
-  object-fit:contain;
+  object-fit:cover;
   background-color:#D8DEFF;
 }
 
@@ -416,12 +422,12 @@ header .header-logo{
 .checkoutPriceForm{
   color:#2f969a;
   display:inline;
-  float:right;
   font-size:1.5rem;
 }
 
 .formCheckbox{
-  padding:20px;
+   min-width: 20px;
+   min-height: 20px;
   display:inline;
 }
 
