@@ -18,7 +18,7 @@ export default class CartSummary extends React.Component {
     let checkoutMessage = null;
     if (this.props.item.length === 0) {
       checkoutSummary = null;
-      checkoutMessage = <h3 className="text-muted mt-5">There are no items in your cart</h3>;
+      checkoutMessage = <h3 className="text-muted mt-5 mb-5 no-items">There are no items in your cart</h3>;
     } else {
       checkoutMessage = null;
       checkoutSummary = <button onClick={() => this.props.setViewFunction('checkout', {})} className="addToCartButton">CHECKOUT</button>;
