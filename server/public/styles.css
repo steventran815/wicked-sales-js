@@ -9,6 +9,7 @@ body{
   background:url("images/TNTBackground.jpg");
   background-size:cover;
   background-attachment: fixed;
+  background-position:center;
   height:100%;
   position:relative;
 }
