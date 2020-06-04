@@ -9,12 +9,13 @@ body{
   background:url("images/TNTBackground.jpg");
   background-size:cover;
   background-attachment: fixed;
+  background-position:center;
   height:100%;
   position:relative;
 }
 
 .demoContainer{
-  background-color:rgba(0,0,0,.75);
+  background-color:rgba(0,0,0,.70);
   position:fixed;
   top:0px;
   left:0px;
