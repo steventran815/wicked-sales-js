@@ -49,7 +49,7 @@ export default class CheckoutForm extends React.Component {
       totalPrice += item[i].price;
     }
     return (
-      <div className="productBackground">
+      <div className="checkoutFormBackground">
         <div className="formHeader d-flex align-items-center justify-content-between">
           <h3 className="checkoutTitle">Checkout</h3>
           <strong><h4 className="totalPriceHeader">Total: <span className="totalPrice">${((totalPrice) / 100).toFixed(2)}</span></h4></strong>
