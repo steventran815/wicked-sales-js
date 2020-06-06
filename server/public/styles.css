@@ -184,6 +184,7 @@ header .header-logo{
   transition:ease all .2s;
   font-family:bebas Neue;
   font-size:1.50rem;
+  cursor:pointer;
 }
 
 .addToCartButton:focus{
@@ -219,10 +220,12 @@ header .header-logo{
   top:25px;
   right:25px;
   transition: ease all .2s;
+  cursor:pointer;
 }
 
 .close:hover{
   color:#E63933;
+  cursor:pointer;
 }
 
 .productImage:hover{
