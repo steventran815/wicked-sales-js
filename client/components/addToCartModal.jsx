@@ -11,7 +11,7 @@ export default class DemoModal extends React.Component {
           <h5><span><strong>{this.props.name}</strong></span> has been added to the cart.</h5>
           <button className="addToCartModalButton mt-2  mr-2" onClick={() => this.props.setViewFunction('catalog', {})}>CONTINUE SHOPPING</button>
           <button className="addToCartButton mt-2" onClick={() => this.props.setViewFunction('cart', {})}>VIEW CART</button>
-          <div onClick={() => this.props.handleAddToCartFunction()}><i className="far fa-times-circle close"></i></div>
+          <div className="pointer"><div onClick={() => this.props.handleAddToCartFunction()}><i className="far fa-times-circle back"></i></div></div>
         </div>
       </div>
     );

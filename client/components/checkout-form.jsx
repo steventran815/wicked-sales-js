@@ -56,7 +56,6 @@ export default class CheckoutForm extends React.Component {
         </div>
         <div className="descriptionDivider"></div>
         <div className="pb-3">
-
         </div>
         <form id="checkout-form" onSubmit={this.handleSubmit}>
           <h6 className="formTitle rounded">Name</h6>
@@ -69,7 +68,7 @@ export default class CheckoutForm extends React.Component {
             <input className="formCheckbox" required type="checkbox" /> <p className="checkboxParagraph">I understand that this is a demo and real names, addresses, and credit card numbers should not be used.</p>
           </div>
           <div className="formFooter pt-3">
-            <div className="continueShopping mb-3 text-muted" onClick={() => this.props.setViewFunction('catalog', {})}><i className="fas fa-angle-left"></i> Continue Shopping</div>
+            <div className="continueShopping mb-3" onClick={() => this.props.setViewFunction('catalog', {})}><i className="fas fa-angle-left"></i> Continue Shopping</div>
             <button className="formSubmit btn btn-primary" type="submit">Submit</button>
           </div>
         </form>

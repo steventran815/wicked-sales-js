@@ -27,7 +27,7 @@ export default class CartSummary extends React.Component {
     return (
       <div className="summaryBackground">
         <h3 className="checkoutTitle">Cart</h3>
-        <div className="backToCatalog mb-3 text-muted" onClick={() => this.props.setViewFunction('catalog', {})}><i className="fas fa-angle-left"></i> CONTINUE SHOPPING</div>
+        <div className="backToCatalog mb-3" onClick={() => this.props.setViewFunction('catalog', {})}><i className="fas fa-angle-left"></i> CONTINUE SHOPPING</div>
         {checkoutMessage}
         {cartList}
         <div className="summaryFooter mt-4 mb-5">

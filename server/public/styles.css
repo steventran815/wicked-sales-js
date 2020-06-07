@@ -220,6 +220,9 @@ header .header-logo{
   top:25px;
   right:25px;
   transition: ease all .2s;
+
+}
+.pointer{
   cursor:pointer;
 }
 
@@ -290,9 +293,10 @@ header .header-logo{
   font-size:1.5rem;
   cursor:pointer;
   transition:all ease .15s;
-  color:#acacac;
+  color:#a1a1a1;
   transition:ease all .35s;
   font-family:teko;
+  display:inline-block;
 }
 .continueShopping{
   font-size:1.5rem;
@@ -301,10 +305,10 @@ header .header-logo{
   color:#acacac;
   transition:ease all .35s;
   font-family:teko;
-  display:inline;
+  display:inline-block;
 }
 
-.backToCatalog:hover{
+.backToCatalog:hover, .continueShopping:hover{
   color:#E63933;
 }
 
@@ -401,7 +405,7 @@ header .header-logo{
 .checkoutTitle{
   font-family:teko;
   font-size:2.75rem;
-  display:inline;
+  display:block;
   margin-bottom:0px;
 }
 
