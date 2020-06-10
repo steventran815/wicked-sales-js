@@ -24,7 +24,7 @@ Check out the live site here - [Top Notch Tees](https://top-notch.steventrancode
 * User can view on mobile devices
 
 #### Preview
-![Wicked-Sales-Demo](./server/public/images/wickedSalesDemo.gif)
+![Wicked-Sales-Preview](./server/public/images/wickedSalesDemo.gif)
 
 #### System Requirements
 * Node.js (10 or higher)
